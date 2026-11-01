@@ -36,7 +36,7 @@ const BackButton = () => {
     || pathname === '/trending-places';
   const canNavigateBack = (Number.isInteger(historyIndex) && historyIndex > 0) || (isHome && window.history.length > 1);
 
-  if (routesWithBackLinks.some((route) => route.test(pathname))) return null;
+  if (isHome || routesWithBackLinks.some((route) => route.test(pathname))) return null;
 
   const handleBack = () => {
     if (canNavigateBack) {

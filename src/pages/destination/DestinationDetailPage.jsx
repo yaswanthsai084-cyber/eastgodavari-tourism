@@ -399,7 +399,7 @@ const DestinationDetailPage = () => {
             <div style={{ marginBottom: '4rem' }}>
               <h2 style={{ fontSize: '2.5rem', fontFamily: 'Georgia, serif', fontWeight: '400', marginBottom: '0.5rem', color: '#333', textAlign: 'center' }}>📍 Nearby Destinations</h2>
               <p style={{ textAlign: 'center', fontSize: '16px', color: '#666', marginBottom: '2rem' }}>Explore more {dest.category} destinations nearby</p>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem' }}>
+              <div className="destination-page-nearby-grid">
                 {nearbyPlaces.map((place) => (
                   <Link key={place.id} to={`/destination-page/${place.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                     <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', height: '280px', cursor: 'pointer', transition: 'all 0.3s ease' }}
