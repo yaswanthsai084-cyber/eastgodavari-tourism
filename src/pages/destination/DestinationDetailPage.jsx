@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { additionalDestinations } from '../../data/additionalDestinations';
 import '../experience/ExperienceDetail.css';
 import explorePeddapuramBeach from '../../assets/images/explore-peddapuram-beach.jpg';
 import exploreKakinadaBeach from '../../assets/images/explore-kakinada-beach.jpg';
@@ -92,7 +93,8 @@ const destinationDetails = {
   39: { title: 'Peddapuram Market', description: 'Local market with variety', fullDescription: ['Peddapuram Market offers fresh produce and local specialties.'], location: 'Peddapuram, East Godavari', category: 'shopping', image: explorePeddapuramMarket },
   40: { title: 'Annavaram Mart', description: 'Shopping destination near temple', fullDescription: ['Annavaram Mart is located near the famous Annavaram temple.'], location: 'Rajahmundry, East Godavari', category: 'shopping', image: exploreAnnavaramMart },
   41: { title: 'Dowleswaram Cotton Barrage', description: 'Sir Arthur Cotton’s historic Godavari irrigation work', fullDescription: ['The Dowleswaram Barrage is an irrigation structure across the Godavari at Dowleswaram, associated with British engineer Sir Arthur Cotton. The district’s engineering-tourism page dates the original barrage to 1850 and describes it as a major work that helped bring irrigation to the Godavari districts.'], location: 'Dowleswaram, East Godavari', category: 'heritage', image: '/heritage-cottonbridge.webp' },
-  42: { title: 'Devi Chowk Mandir', description: 'Sacred temple dedicated to the goddess', fullDescription: ['Devi Chowk Mandir is a revered spiritual site dedicated to the goddess, attracting devotees and visitors seeking divine blessings and peace.'], location: 'Rajahmundry, East Godavari', category: 'spirituality', image: '/spirituality-devichowk.webp' }
+  42: { title: 'Devi Chowk Mandir', description: 'Sacred temple dedicated to the goddess', fullDescription: ['Devi Chowk Mandir is a revered spiritual site dedicated to the goddess, attracting devotees and visitors seeking divine blessings and peace.'], location: 'Rajahmundry, East Godavari', category: 'spirituality', image: '/spirituality-devichowk.webp' },
+  ...Object.fromEntries(additionalDestinations.map((destination) => [destination.id, destination]))
 };
 
 const destinationContent = {

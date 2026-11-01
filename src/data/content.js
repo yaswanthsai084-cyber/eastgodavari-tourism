@@ -57,15 +57,8 @@ import eco_forest_camping from "../assets/images/eco-foest-camping.jpg";
 import art_kuchipudi from "../assets/images/art-kuchipudi.jpg";
 import art_folk_dance from "../assets/images/art-folk-dance.jpg";
 import art_music from "../assets/images/art-music.jpg";
-import art_theatre from "../assets/images/art-theatre.jpg";
 import art_puppetry from "../assets/images/art-puppetry.jpg";
 import art_crafts from "../assets/images/art-crafts.jpg";
-import cuisine_seafood from "../assets/images/cuisine-sea-food.jpg";
-import cuisine_rice_dishes from "../assets/images/cuisine-rich-dishes.jpg";
-import cuisine_snacks from "../assets/images/cuisine-snacks.jpg";
-import cuisine_sweets from "../assets/images/cuisine-sweets.jpg";
-import cuisine_spices from "../assets/images/cuisine-spices.jpg";
-import cuisine_coconut from "../assets/images/cuisine-coconut.jpg";
 
 export const destinations = [
     { 
@@ -673,24 +666,10 @@ export const experienceCategories = {
       { image: '/kuchipudi.webp', title: 'Kuchipudi Dance', description: 'Classical dance form with graceful movements', location: 'Rajahmundry, East Godavari' },
       { image: art_folk_dance, title: 'Folk Dance Traditions', description: 'Vibrant traditional folk dance performances', location: 'Kakinada, East Godavari' },
       { image: art_music, title: 'Classical Music', description: 'Traditional Carnatic music and folk songs', location: 'Amalapuram, East Godavari' },
-      { image: art_theatre, title: 'Theatre Arts', description: 'Traditional drama and street plays', location: 'Peddapuram, East Godavari' },
       { image: art_puppetry, title: 'Puppet Shows', description: 'Ancient art of shadow and string puppetry', location: 'Yanam, East Godavari' },
       { image: art_crafts, title: 'Traditional Crafts', description: 'Handicrafts and artisan workshops', location: 'Korumam, East Godavari' }
     ]
   },
-  'cuisine': {
-    title: 'Cuisine',
-    description: 'Savour the authentic flavours and traditional dishes of East Godavari.',
-    link: '#',
-    linkText: 'Explore More',
-    items: [
-      { image: cuisine_seafood, title: 'Seafood Delicacies', description: 'Fresh catches from the Bay of Bengal', location: 'Peddapuram, East Godavari' },
-      { image: cuisine_rice_dishes, title: 'Traditional Rice Dishes', description: 'Authentic pulao and biryani varieties', location: 'Rajahmundry, East Godavari' },
-      { image: cuisine_snacks, title: 'Local Snacks', description: 'Savory treats and street food', location: 'Kakinada, East Godavari' },
-      { image: cuisine_sweets, title: 'Traditional Sweets', description: 'Delicious desserts and sweetmeats', location: 'Amalapuram, East Godavari' },
-      { image: cuisine_spices, title: 'Spice Blends', description: 'Authentic masalas and spice mixes', location: 'Kadiyam, East Godavari' },
-      { image: cuisine_coconut, title: 'Coconut Cuisine', description: 'Dishes prepared with fresh coconut', location: 'Yanam, East Godavari' }
-    ]}
 };
 
 export const latestNews = [
@@ -717,4 +696,4 @@ export const footerSections = [
   ]}
 ];
 
-export { gallary_Kalaripayattu, gallary_peddapuram_beach, memories_cuisine, memories_village_life, memories_trekking, memories_agri_tourism, memories_artforms, memories_monsoon, memories_river_cruise, godavari_pushkaram, godavari_river, peddapuram, jack_fruit, rajahmundry_image, brochure_amalapuram, gallary_elephant_herd, responsible_farm, responsible_pottery, responsible_coconut, responsible_nursery, responsible_bamboo, responsible_dairy, responsible_fishing, eco_wildlife, eco_mangrove, eco_bird, eco_nature_trekking, eco_mountain_biking, eco_forest_camping, art_kuchipudi, art_folk_dance, art_music, art_theatre, art_puppetry, art_crafts, cuisine_seafood, cuisine_rice_dishes, cuisine_snacks, cuisine_sweets, cuisine_spices, cuisine_coconut };
+export { gallary_Kalaripayattu, gallary_peddapuram_beach, memories_cuisine, memories_village_life, memories_trekking, memories_agri_tourism, memories_artforms, memories_monsoon, memories_river_cruise, godavari_pushkaram, godavari_river, peddapuram, jack_fruit, rajahmundry_image, brochure_amalapuram, gallary_elephant_herd, responsible_farm, responsible_pottery, responsible_coconut, responsible_nursery, responsible_bamboo, responsible_dairy, responsible_fishing, eco_wildlife, eco_mangrove, eco_bird, eco_nature_trekking, eco_mountain_biking, eco_forest_camping, art_kuchipudi, art_folk_dance, art_music, art_puppetry, art_crafts };

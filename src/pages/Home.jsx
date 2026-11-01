@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import WhatsNew from '../components/WhatsNew';
 import StunningWonders from '../components/StunningWonders';
+import CultureEastGodavari from '../components/CultureEastGodavari';
 import MemoriesForALifetime from '../components/MemoriesForALifetime';
 import GatewayToEastGodavari from '../components/GatewayToEastGodavari';
 import Events from '../components/Events';
@@ -118,6 +119,7 @@ const Home = () => {
       <Hero />
       <div className="home-scroll-section"><WhatsNew /></div>
       <div className="home-scroll-section"><StunningWonders /></div>
+      <div className="home-scroll-section"><CultureEastGodavari /></div>
       <div className="home-scroll-section"><MemoriesForALifetime /></div>
       <div className="home-scroll-section"><GatewayToEastGodavari /></div>
       <div className="home-scroll-section"><Events /></div>

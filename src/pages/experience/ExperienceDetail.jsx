@@ -75,21 +75,6 @@ const ExperienceDetail = () => {
       ]
     },
     'artforms-3': {
-      title: 'Theatre Arts',
-      fullDescription: [
-        'Theatre arts in East Godavari blend traditional storytelling with contemporary themes. Street plays and open-air performances bring communities together to celebrate art and culture.',
-        'These performances often address social issues, folklore, and historical events, making them both entertaining and thought-provoking. The vibrant costumes and dramatic expressions create an unforgettable theatrical experience.'
-      ],
-      bestTime: 'All year round',
-      duration: '1.5-2 hours',
-      location: 'Peddapuram, East Godavari',
-      gallery: [
-        'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=800',
-        'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800',
-        'https://images.unsplash.com/photo-1614531341774-39b7238e3d68?w=800'
-      ]
-    },
-    'artforms-4': {
       title: 'Puppet Shows',
       fullDescription: [
         'Puppet shows in East Godavari are a captivating art form that uses beautifully crafted puppets to narrate stories from epics like Ramayana and Mahabharata. The artisans create intricate puppets from wood and cloth.',
@@ -104,7 +89,7 @@ const ExperienceDetail = () => {
         'https://images.unsplash.com/photo-1504173010664-32509aeebb62?w=800'
       ]
     },
-    'artforms-5': {
+    'artforms-4': {
       title: 'Traditional Crafts',
       fullDescription: [
         'East Godavari\'s traditional crafts reflect the artistic skills passed down through generations. From intricate wood carvings to delicate handloom textiles, each craft tells a story of cultural heritage.',

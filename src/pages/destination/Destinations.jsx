@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
+import { additionalDestinations } from '../../data/additionalDestinations';
 import explorePeddapuramBeach from '../../assets/images/explore-peddapuram-beach.jpg';
 import exploreKakinadaBeach from '../../assets/images/explore-kakinada-beach.jpg';
 import exploreCoringaBeach from '../../assets/images/explore-coringa-beach.jpg';
@@ -7,16 +8,13 @@ import exploreYanamBeach from '../../assets/images/explore-yanam-beach.jpg';
 import exploreGautamiRiver from '../../assets/images/explore-gautami-river.jpg';
 import exploreKorukondaFort from '../../assets/images/explore-korukonda-fort.jpg';
 import exploreRamanayuniTemple from '../../assets/images/explore-ramanayuni-temple.jpg';
-import explorePeddapuramFort from '../../assets/images/explore-peddapuram-fort.jpg';
 import exploreRajahmundryBridge from '../../assets/images/explore-rajahmundry-bridge.jpg';
 import exploreMahakaleshwarTemple from '../../assets/images/explore-kotipalli-temple.jpg';
 import exploreKotipalliRiver from '../../assets/images/explore-kotipalli-river.jpg';
-import exploreKakinadaHillView from '../../assets/images/explore-kakinada-hill-view.jpg';
 import exploreGodavariIsland from '../../assets/images/explore-godavari-island.jpg';
 import explorePapiHill from '../../assets/images/explore-papi-hill.jpg';
 import exploreYalamanchiliLanka from '../../assets/images/explore-yalamanchili-lanka.jpg';
 import exploreGudisaHill from '../../assets/images/explore-gudisa-hill.jpg';
-import explorePithampurHills from '../../assets/images/explore-pithampur-hills.jpg';
 import exploreMaridimilliHill from '../../assets/images/explore-maredimilli-hill.jpg';
 import exploreAmruthandhraWaterfall from '../../assets/images/explore-amruthandhra-waterfall.jpg';
 import exploreGodavariWaterfall from '../../assets/images/explore-godavari-waterfall.jpg';
@@ -30,10 +28,7 @@ import exploreAtreyapuramWildlife from '../../assets/images/explore-atreyapuram-
 import exploreMavidadaRamalayam from '../../assets/images/explore-kakinda-ramalayam.jpg';
 import exploreVinayakaTemple from '../../assets/images/explore-vinayaka-temple.jpg';
 import exploreKorukondaTemple from '../../assets/images/explore-korukonda-temple.jpg';
-import explorePithampurMarket from '../../assets/images/explore-pithampur-market.jpg';
 import exploreKakinadaShopping from '../../assets/images/explore-kakinada-shopping.jpg';
-import exploreAmalapuramMarket from '../../assets/images/explore-amalapuram-market.jpg';
-import explorePeddapuramMarket from '../../assets/images/explore-peddapuram-market.jpg';
 import exploreAnnavaramMart from '../../assets/images/explore-annavaram-mart.jpg';
 import exploreHopeIsland from '../../assets/images/explore-hope-island.jpg';
 import explorePallamIsland from '../../assets/images/explore-pallam-island.jpg';
@@ -86,12 +81,15 @@ const Destinations = () => {
   const categories = [
     { id: 'all', label: 'All Destinations' },
     { id: 'hills', label: 'Hill Stations' },
-    { id: 'beaches', label: 'Beaches' },
+    { id: 'beaches', label: 'Beaches & Coastal Attractions' },
     { id: 'river islands', label: 'River Islands' },
-    { id: 'wildlife', label: 'Wildlife' },
-    { id: 'heritage', label: 'Heritage' },
-    { id: 'waterfalls', label: 'Waterfalls' },
-    { id: 'spirituality', label: 'Spirituality' },
+    { id: 'wildlife', label: 'Forests & Wildlife' },
+    { id: 'heritage', label: 'Historical & Heritage Places' },
+    { id: 'waterfalls', label: 'Waterfalls & Nature' },
+    { id: 'spirituality', label: 'Temples & Religious Places' },
+    { id: 'rivers', label: 'Rivers & Ghats' },
+    { id: 'villages', label: 'Villages & Countryside' },
+    { id: 'parks', label: 'Parks & Recreation' },
     { id: 'shopping', label: 'Shopping & Malls' }
   ];
 
@@ -106,7 +104,6 @@ const Destinations = () => {
     // Heritage (5)
     { id: 6, category: 'heritage', title: 'Korukonda Fort', alt: 'Korukonda Fort', src: exploreKorukondaFort, description: 'Historic fort with ancient architecture and panoramic views of the surrounding landscape.', address: 'Korukonda, East Godavari, Andhra Pradesh' },
     { id: 7, category: 'heritage', title: 'Ramanayuni Temple', alt: 'Ramanayuni Temple', src: exploreRamanayuniTemple, description: 'Ancient temple with intricate carvings and rich spiritual heritage dating back centuries.', address: 'Ramanayuni, East Godavari, Andhra Pradesh' },
-    { id: 8, category: 'heritage', title: 'Peddapuram Fort', alt: 'Peddapuram Fort', src: explorePeddapuramFort, description: 'Magnificent historical fort showcasing the architectural brilliance of ancient India.', address: 'Peddapuram, East Godavari, Andhra Pradesh' },
     { id: 9, category: 'heritage', title: 'Godavari Bridges', alt: 'Godavari Bridges at Rajamahendravaram', src: exploreRajahmundryBridge, description: 'A sequence of historic rail and road bridges across the Godavari at Rajamahendravaram.', address: 'Rajamahendravaram, East Godavari, Andhra Pradesh' },
     { id: 10, category: 'heritage', title: 'Mahakaleshwar Temple', alt: 'Mahakaleshwar  Temple', src: exploreMahakaleshwarTemple, description: 'Sacred temple dedicated to Lord Shiva with beautiful architecture and religious significance.', address: 'Kotipalli, East Godavari, Andhra Pradesh' },
     { id: 41, category: 'heritage', title: 'Dowleswaram Cotton Barrage', alt: 'Dowleswaram Cotton Barrage', src: exploreCottonBridge, description: 'Historic Godavari irrigation barrage built under Sir Arthur Cotton in 1850.', address: 'Dowleswaram, East Godavari, Andhra Pradesh' },
@@ -120,9 +117,7 @@ const Destinations = () => {
     
     // Hills (5)
     { id: 16, category: 'hills', title: 'Gudisa Hill', alt: 'Gudisa Hill', src: exploreGudisaHill, description: 'Scenic hill station with misty peaks and stunning viewpoints for adventure enthusiasts.', address: 'Gudisa Hills, East Godavari, Andhra Pradesh' },
-    { id: 17, category: 'hills', title: 'Pithapuram Hills', alt: 'Pithampur Hills', src: explorePithampurHills, description: 'Rolling hills with tea gardens and pleasant climate, ideal for trekking and nature walks.', address: 'Pithampur, East Godavari, Andhra Pradesh' },
     { id: 18, category: 'hills', title: 'Maredumilli Forests', alt: 'Maredumilli Forests', src: exploreMaridimilliHill, description: 'Eastern Ghats forests and community-led eco-tourism area.', address: 'Maredumilli, East Godavari, Andhra Pradesh' },
-    { id: 19, category: 'hills', title: 'Kakinada Hill View', alt: 'Kakinada Hill View', src: exploreKakinadaHillView, description: 'Panoramic viewpoint offering breathtaking views of the coastal landscape and city.', address: 'Kakinada Hill View Point, East Godavari' },
     { id: 20, category: 'hills', title: 'Papi Hills', alt: 'Papi Hills', src: explorePapiHill, description: 'Majestic hills with deep gorges and the mighty Godavari flowing through them.', address: 'Papi Hills, Near Bhadrachalam, East Godavari' },
     
     // Waterfalls (5)
@@ -145,12 +140,10 @@ const Destinations = () => {
     { id: 34, category: 'spirituality', title: 'Gollala Mamidada Suryanarayana Temple', alt: 'Gollala Mamidada Suryanarayana Temple', src: exploreMavidadaRamalayam, description: 'Temple complex known for its carved 170-foot gopuram and 16-acre campus.', address: 'Gollala Mamidada, East Godavari, Andhra Pradesh' },
     { id: 35, category: 'spirituality', title: 'Bikkavolu Vinayaka Temple', alt: 'Bikkavolu Vinayaka Temple', src: exploreVinayakaTemple, description: 'Historic Sri Vinayaka shrine with a local tradition dating the idol to 849 CE.', address: 'Bikkavolu, East Godavari, Andhra Pradesh' },
     { id: 42, category: 'spirituality', title: 'Devi Chowk Mandir', alt: 'Devi Chowk Mandir', src: exploreDeviChowk, description: 'Sacred temple dedicated to the goddess, a revered spiritual site in the heart of the region.', address: 'Devi Chowk, East Godavari, Andhra Pradesh' },
+    ...additionalDestinations,
     
     // Shopping (5)
-    { id: 36, category: 'shopping', title: 'Pithapur Market', alt: 'Pithampur Market', src: explorePithampurMarket, description: 'Vibrant local market offering traditional handicrafts, textiles, and authentic cuisine.', address: 'Pithampur Market, East Godavari, Andhra Pradesh' },
     { id: 37, category: 'shopping', title: 'Kakinada Shopping', alt: 'Kakinada Shopping', src: exploreKakinadaShopping, description: 'Modern shopping destination with local boutiques, malls, and traditional markets.', address: 'Kakinada Shopping Complex, Kakinada, East Godavari' },
-    { id: 38, category: 'shopping', title: 'Amalapuram Market', alt: 'Amalapuram Market', src: exploreAmalapuramMarket, description: 'Bustling market known for fresh produce, spices, and local artisan products.', address: 'Amalapuram Market, East Godavari, Andhra Pradesh' },
-    { id: 39, category: 'shopping', title: 'Peddapuram Market', alt: 'Peddapuram Market', src: explorePeddapuramMarket, description: 'Traditional marketplace with authentic local products and cultural shopping experience.', address: 'Peddapuram Market, East Godavari, Andhra Pradesh' },
     { id: 40, category: 'shopping', title: 'Annavaram Mart', alt: 'Annavaram Mart', src: exploreAnnavaramMart, description: 'Popular shopping center near the famous temple with religious items and souvenirs.', address: 'Annavaram Mart, Near Temple, East Godavari' }
   ];
 

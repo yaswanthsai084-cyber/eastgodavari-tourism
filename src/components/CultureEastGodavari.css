@@ -1,0 +1,83 @@
+.culture-east-godavari-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.culture-east-godavari-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.culture-east-godavari-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+}
+
+.culture-east-godavari-card-image {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.culture-east-godavari-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.culture-east-godavari-card:hover .culture-east-godavari-card-image img {
+  transform: scale(1.05);
+}
+
+.culture-east-godavari-card-content {
+  flex: 1;
+  padding: 1.25rem;
+}
+
+.culture-east-godavari-card-content h3 {
+  margin: 0 0 0.5rem;
+  color: #1a1a2e;
+  font: 700 1.15rem/1.3 Georgia, serif;
+}
+
+.culture-east-godavari-card-content p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .culture-east-godavari-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .culture-east-godavari-card-content {
+    padding: 0.9rem;
+  }
+
+  .culture-east-godavari-card-content h3 {
+    font-size: 1rem;
+  }
+
+  .culture-east-godavari-card-content p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .culture-east-godavari-card,
+  .culture-east-godavari-card-image img {
+    transition: none;
+  }
+}

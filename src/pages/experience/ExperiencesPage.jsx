@@ -165,14 +165,6 @@ const ExperiencesPage = () => {
                         <path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" />
                       </>
                     )}
-                    {key === 'cuisine' && (
-                      <>
-                        <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
-                        <line x1="6" y1="1" x2="6" y2="4" />
-                        <line x1="10" y1="1" x2="10" y2="4" />
-                        <line x1="14" y1="1" x2="14" y2="4" />
-                      </>
-                    )}
                   </svg>
                   <span className="nav-tab-text">{category.title}</span>
                 </button>
