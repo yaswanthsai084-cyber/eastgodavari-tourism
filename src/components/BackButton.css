@@ -1,0 +1,33 @@
+.global-back-button {
+  position: fixed;
+  left: 1rem;
+  bottom: 1.5rem;
+  z-index: 1100;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  color: #1a6b7a;
+  background: #fff;
+  border: 1px solid #d5dadd;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.14);
+  cursor: pointer;
+}
+
+.global-back-button--top {
+  top: 160px;
+  bottom: auto;
+}
+
+.global-back-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+@media (max-width: 767px) {
+  .global-back-button--top {
+    top: 100px;
+  }
+}

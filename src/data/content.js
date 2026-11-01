@@ -554,8 +554,7 @@ export const experienceCategories = {
       { image: cuisine_sweets, title: 'Traditional Sweets', description: 'Delicious desserts and sweetmeats', location: 'Amalapuram, East Godavari' },
       { image: cuisine_spices, title: 'Spice Blends', description: 'Authentic masalas and spice mixes', location: 'Kadiyam, East Godavari' },
       { image: cuisine_coconut, title: 'Coconut Cuisine', description: 'Dishes prepared with fresh coconut', location: 'Yanam, East Godavari' }
-    ]
-  }
+    ]}
 };
 
 export const latestNews = [
