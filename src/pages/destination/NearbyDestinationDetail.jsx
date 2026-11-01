@@ -131,7 +131,7 @@ const NearbyDestinationDetail = () => {
       {/* Main Content */}
       <div className="container" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
         {/* Description Section */}
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '3rem', marginBottom: '3rem' }}>
+        <div className="destination-detail-overview-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '3rem', marginBottom: '3rem' }}>
           <div>
             <h2 style={{
               fontSize: '2.5rem',
@@ -381,7 +381,7 @@ const NearbyDestinationDetail = () => {
           }}>
             How To Reach
           </h2>
-          <div style={{
+          <div className="destination-detail-travel-grid" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
             gap: '2rem'

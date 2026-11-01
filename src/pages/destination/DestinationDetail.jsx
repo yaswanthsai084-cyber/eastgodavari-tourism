@@ -66,7 +66,7 @@ const DestinationDetail = () => {
       {/* Main Content */}
       <div className="container" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
         {/* Description Section */}
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '3rem', marginBottom: '3rem' }}>
+        <div className="destination-detail-overview-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '3rem', marginBottom: '3rem' }}>
           <div>
             <h2 style={{ fontSize: '2.5rem', fontFamily: 'Georgia, serif', fontWeight: '400', lineHeight: '1.3', marginBottom: '2rem', color: '#333' }}>
               {destData.description.title}
@@ -148,7 +148,7 @@ const DestinationDetail = () => {
         {/* How to Reach Section */}
         <div id="howtoreach" style={{ marginBottom: '4rem' }}>
           <h2 style={{ fontSize: '2.5rem', fontFamily: 'Georgia, serif', fontWeight: '400', marginBottom: '2rem', color: '#333' }}>How To Reach</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem' }}>
+          <div className="destination-detail-travel-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem' }}>
             {/* By Bus */}
             <div style={{ background: '#f0faf0', borderRadius: '16px', padding: '1.5rem', border: '1px solid #d0ead0', transition: 'all 0.3s ease' }}
               onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 8px 20px rgba(0,0,0,0.08)'; }}

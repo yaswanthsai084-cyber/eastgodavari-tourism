@@ -47,6 +47,7 @@ const Destinations = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [clickedDestination, setClickedDestination] = useState(null);
   const videoRef = useRef(null);
+  const destinationGridRef = useRef(null);
 
   // Track video load
   const handleVideoLoad = () => {
@@ -59,6 +60,28 @@ const Destinations = () => {
       setActiveFilter(categoryFromUrl);
     }
   }, [categoryFromUrl]);
+
+  useEffect(() => {
+    const cards = destinationGridRef.current?.querySelectorAll('.destination-menu-card');
+    if (!cards) return undefined;
+
+    if (!('IntersectionObserver' in window)) {
+      cards.forEach(card => card.classList.add('is-visible'));
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    cards.forEach(card => observer.observe(card));
+    return () => observer.disconnect();
+  }, [activeFilter]);
 
   const categories = [
     { id: 'all', label: 'All Destinations' },
@@ -136,7 +159,7 @@ const Destinations = () => {
     : categoryImages.filter(img => img.category === activeFilter);
 
   return (
-    <div className="page-container">
+    <div className="page-container destinations-menu-page">
       {/* Hero Video Section (Home Page Style) */}
       <section className="hero-section">
         <div className="hero-video-wrapper">
@@ -201,9 +224,9 @@ const Destinations = () => {
         </div>
 
         {/* Image Cards Grid */}
-        <div style={{
+        <div ref={destinationGridRef} className="destination-menu-grid" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+          gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
           gap: '2rem',
           marginBottom: '3rem'
         }}>
@@ -211,10 +234,10 @@ const Destinations = () => {
             <Link
               key={image.id}
               to={`/destination-page/${image.id}`}
-              style={{ textDecoration: 'none', color: 'inherit' }}
+              className="destination-menu-card-link"
             >
               <div
-                className="destination-card-load"
+                className="destination-card-load destination-menu-card"
                 style={{
                   animationDelay: `${Math.min(index, 8) * 70}ms`,
                   borderRadius: '20px',

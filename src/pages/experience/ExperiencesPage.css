@@ -374,7 +374,7 @@
 /* ===== 5. MODERN SUBCATEGORY CARDS ===== */
 .experiences-page .subcategories {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 2rem;
   margin-top: 2rem;
   align-items: stretch;
@@ -387,7 +387,7 @@
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.04);
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
   cursor: pointer;
   position: relative;
   min-height: 100%;
@@ -724,7 +724,7 @@
   }
 
   .experiences-page .subcategories {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
   }
 
@@ -767,7 +767,7 @@
   }
 
   .experiences-page .subcategories {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.25rem;
   }
 
@@ -787,5 +787,11 @@
 
   .experiences-page .cta-actions {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .experiences-page .subcategories {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

@@ -245,7 +245,7 @@ const ExperienceDetail = () => {
 
       {/* Main Content */}
       <div className="container" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '3rem', marginBottom: '3rem' }}>
+        <div className="experience-detail-overview-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '3rem', marginBottom: '3rem' }}>
           {/* Left: Wikipedia-style content + About Location */}
           <div>
             <h2 style={{ fontSize: '2.5rem', fontFamily: 'Georgia, serif', fontWeight: '400', lineHeight: '1.3', marginBottom: '2rem', color: '#333' }}>

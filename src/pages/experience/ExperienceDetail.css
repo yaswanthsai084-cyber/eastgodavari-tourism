@@ -32,6 +32,11 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .experience-detail-overview-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 1.25rem !important;
+  }
+
   .experience-tabs {
     gap: 1rem;
   }
