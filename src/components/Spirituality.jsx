@@ -22,19 +22,15 @@ const Spirituality = () => {
         <div className="container-xl" style={{ margin: '0 auto' }}>
           <SectionHeader heading="Spirituality" description="Embark on a divine journey through the sacred temples and spiritual heritage of East Godavari." />
         </div>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-          gap: '2rem',
-          padding: '1rem 0'
-        }}>
+        <div className="home-feature-cards-grid spirituality-cards-grid">
           {spiritualityItems.map((item, i) => (
             <Link
               key={i}
               to={item.link}
-              style={{ textDecoration: 'none', color: 'inherit' }}
+              className="home-feature-card-link"
             >
               <div
+                className="home-feature-card"
                 style={{
                   borderRadius: '20px',
                   overflow: 'hidden',

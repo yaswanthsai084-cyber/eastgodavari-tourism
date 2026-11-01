@@ -7,13 +7,13 @@ const VideoGallery = () => (
       <div style={{ marginBottom: '2rem' }}>
         <SectionHeader heading="Video Gallery" description="Take a virtual expedition through our video gallery" />
       </div>
-      <div style={{
+      <div className="home-video-gallery" style={{
         width: '100vw',
         position: 'relative',
         background: '#000',
         marginLeft: 'calc(-50vw + 50%)'
       }}>
-        <div style={{
+        <div className="home-video-gallery-frame" style={{
           position: 'relative',
           width: '100%',
           aspectRatio: '16 / 9',

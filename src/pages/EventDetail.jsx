@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { events } from '../data/content';
+import EventImageCredit from '../components/EventImageCredit';
 import './EventsPage.css';
 
 const EventDetail = () => {
@@ -24,6 +25,10 @@ const EventDetail = () => {
           src={event.image}
           alt={event.heading} 
           style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'center'}}
+        />
+        <EventImageCredit
+          attribution={event.imageAttribution}
+          className="event-image-credit--overlay"
         />
         <div style={{
           position:'absolute',
@@ -141,24 +146,24 @@ const EventDetail = () => {
             </h2>
             <div className="events-grid" style={{display:'grid',gridTemplateColumns:'1fr',gap:'1rem'}}>
               {events.filter(e => e.id !== id).slice(0, 3).map((relatedEvent, index) => (
-                <Link
-                  key={index}
-                  to={`/events/${relatedEvent.id}`}
-                  style={{textDecoration:'none',color:'inherit'}}
-                >
-                  <article className="event-card" style={{display:'flex',gap:'1.5rem',padding:'1.5rem',border:'1px solid #eee',borderRadius:'8px',cursor:'pointer',transition:'all 0.3s ease'}}>
+                  <article key={relatedEvent.id} className="event-card" style={{display:'flex',gap:'1.5rem',padding:'1.5rem',border:'1px solid #eee',borderRadius:'8px',transition:'all 0.3s ease'}}>
                     <img 
                       src={relatedEvent.image} 
                       alt={relatedEvent.heading} 
                       style={{width:'150px',height:'150px',objectFit:'cover',borderRadius:'8px',boxShadow:'0 2px 8px rgba(0,0,0,0.1)'}}
                     />
                     <div>
-                      <h4 style={{margin:'0 0 0.25rem 0',fontSize:'1.1rem',color:'#333'}}>{relatedEvent.heading}</h4>
+                      <Link to={`/events/${relatedEvent.id}`} style={{textDecoration:'none',color:'inherit'}}>
+                        <h4 style={{margin:'0 0 0.25rem 0',fontSize:'1.1rem',color:'#333'}}>{relatedEvent.heading}</h4>
+                      </Link>
                       <p style={{margin:'0 0 0.25rem 0',fontSize:'0.9rem',color:'#666'}}>{relatedEvent.description}</p>
                       <span style={{fontSize:'0.85rem',color:'#FF9D00'}}>{relatedEvent.date}</span>
+                      <EventImageCredit
+                        attribution={relatedEvent.imageAttribution}
+                        className="event-image-credit--inline"
+                      />
                     </div>
                   </article>
-                </Link>
               ))}
             </div>
           </div>

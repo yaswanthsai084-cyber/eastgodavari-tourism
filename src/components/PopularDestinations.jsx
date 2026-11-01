@@ -13,20 +13,15 @@ const PopularDestinations = () => {
           <p>Check out these enthralling tourism spots that cast a magical spell!</p>
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(320px,1fr))",
-            gap: "2rem",
-          }}
-        >
+        <div className="home-feature-cards-grid popular-destinations-grid">
           {items.map((dest, i) => (
             <Link
               key={i}
               to={`/destination/${dest.id}`}
-              style={{ textDecoration: "none", color: "inherit" }}
+              className="home-feature-card-link"
             >
               <div
+                className="home-feature-card"
                 style={{
                   borderRadius: "20px",
                   overflow: "hidden",

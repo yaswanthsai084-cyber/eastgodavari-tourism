@@ -1,6 +1,7 @@
 import React from 'react';
 import { events } from '../data/content';
 import { Link } from 'react-router-dom';
+import EventImageCredit from '../components/EventImageCredit';
 import './EventsPage.css';
 
 const EventsPage = () => (
@@ -23,17 +24,24 @@ const EventsPage = () => (
           </a>
         </div>
         <div className="events-grid">
-          {events.map((event, i) => (
-            <Link key={i} to={`/events/${event.id}`} style={{textDecoration:'none',color:'inherit'}}>
-              <article className="event-card" style={{cursor:'pointer'}}>
-                <img src={event.image} alt={event.heading} loading="lazy" />
-                <div className="event-card-overlay">
-                  <span className="event-date-badge">{event.date}</span>
-                  <h4>{event.heading}</h4>
-                  {event.description && <p>{event.description}</p>}
-                </div>
-              </article>
-            </Link>
+          {events.map((event) => (
+            <article key={event.id} className="event-card">
+              <img src={event.image} alt={event.heading} loading="lazy" />
+              <Link
+                to={`/events/${event.id}`}
+                className="event-card-link"
+                aria-label={`Explore ${event.heading}`}
+              />
+              <div className="event-card-overlay">
+                <span className="event-date-badge">{event.date}</span>
+                <h4>{event.heading}</h4>
+                {event.description && <p>{event.description}</p>}
+                <EventImageCredit
+                  attribution={event.imageAttribution}
+                  className="event-image-credit--card"
+                />
+              </div>
+            </article>
           ))}
         </div>
       </div>

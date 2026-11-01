@@ -207,14 +207,16 @@ const Destinations = () => {
           gap: '2rem',
           marginBottom: '3rem'
         }}>
-          {filteredCategoryImages.map((image) => (
+          {filteredCategoryImages.map((image, index) => (
             <Link
               key={image.id}
               to={`/destination-page/${image.id}`}
               style={{ textDecoration: 'none', color: 'inherit' }}
             >
               <div
+                className="destination-card-load"
                 style={{
+                  animationDelay: `${Math.min(index, 8) * 70}ms`,
                   borderRadius: '20px',
                   overflow: 'hidden',
                   background: 'white',

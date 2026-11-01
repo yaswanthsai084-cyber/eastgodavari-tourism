@@ -21,15 +21,11 @@ const MemoriesForALifetime = () => {
       <div className="memories-content">
         <div className="container">
           <SectionHeader heading="Memories for a Lifetime" description="Here is a bouquet of unforgettable experiences East Godavari offers: charming village life, thrilling treks, serene safaris, vibrant farms, unique cuisine, tranquil river cruises and the magic of monsoon. Each moment in East Godavari is a story waiting to be told, a memory etched in time." light />
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-            gap: '2rem'
-          }}>
+          <div className="home-feature-cards-grid memories-cards-grid">
             {items.map((item, i) => (
-              <Link key={i} to="/experiences" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Link key={i} to="/experiences" className="home-feature-card-link">
                 <div
-                  className="memories-card"
+                  className="memories-card home-feature-card"
                   onMouseOver={(e) => {
                     e.currentTarget.style.transform = 'translateY(-10px) scale(1.01)';
                     e.currentTarget.style.boxShadow = '0 24px 60px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.06)';

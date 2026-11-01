@@ -5,18 +5,33 @@ import papi_hills from "../assets/images/dest_papi_hills.jpg";
 import amruthadhara_waterfall from "../assets/images/dest_amruthadhara_waterfall.jpg";
 import peddapuram from "../assets/images/dest_peddapuram.jpg";
 import kotipalli_river from "../assets/images/dest_kotipalli_river.jpg";
-import elephant_festival from "../assets/images/event-elephant-festival.jpg";
-import elephant_feeding from "../assets/images/event-elephant-feeding.jpg";
 import godavari_pushkaram from "../assets/images/event-godavari-pushkaram.jpg";
 import godavari_river from "../assets/images/event-godavari-river.jpg";
-import harvest from "../assets/images/event-harvest.jpg";
-import jallikattu from "../assets/images/event-jallikattu.jpg";
-import pongal from "../assets/images/event-pongal.jpg";
-import sankranti from "../assets/images/event-sankranti.jpg";
+import kadiyam_flower_festival from "../assets/images/event-kadiyam-flower-festival.png";
+import prabhala_teertham from "../assets/images/event-prabhala-teertham.png";
+import veerallamma_jatara from "../assets/images/event-veerallamma-jatara.png";
+import bapanamma_jatara from "../assets/images/event-bapanamma-jatara.png";
+import antarvedi_kalyanotsavam from "../assets/images/event-antarvedi-kalyanotsavam.png";
+import draksharamam_maha_shivaratri from "../assets/images/event-draksharamam-maha-shivaratri.png";
+import ainavilli_vinayaka_utsavalu from "../assets/images/event-ainavilli-vinayaka-utsavalu.png";
+import satyanarayana_swamy_kalyanotsavam from "../assets/images/event-satyanarayana-swamy-kalyanotsavam.png";
+import kukkuteswara_swamy_utsavalu from "../assets/images/event-kukkuteswara-swamy-utsavalu.png";
+import samarlakota_temple_utsavalu from "../assets/images/event-samarlakota-temple-utsavalu.png";
+import muramalla_kalyanotsavam from "../assets/images/event-muramalla-kalyanotsavam.png";
+import konaseema_sankranti_sambaralu from "../assets/images/event-konaseema-sankranti-sambaralu.png";
+import godavari_pushkaralu from "../assets/images/event-godavari-pushkaralu.png";
+import karthika_deepotsavam from "../assets/images/event-karthika-deepotsavam.png";
+import sri_rama_navami from "../assets/images/event-sri-rama-navami.png";
+import devi_navaratri_mahotsavam from "../assets/images/event-devi-navaratri-mahotsavam.png";
 import brochure_amalapuram from "../assets/images/brochure-amalapuram-brochure.jpg";
 import gallary_elephant_herd from "../assets/images/gallary-elephant-herd.jpg";
 import gallary_Kalaripayattu from "../assets/images/gallary-Kalaripayattu.jpg";
 import gallary_peddapuram_beach from "../assets/images/gallary-peddapuram-beach.jpg";
+import exploreRajahmundryBridge from "../assets/images/explore-rajahmundry-bridge.jpg";
+import exploreCoringaWildlife from "../assets/images/explore-coringa-willdlife.jpg";
+import explorePapiHill from "../assets/images/explore-papi-hill.jpg";
+import exploreMaridimilliHill from "../assets/images/explore-maredimilli-hill.jpg";
+import heritageCottonBridge from "../assets/images/heritage-cottonbridge.webp";
 import rajahmundry_image from "../assets/images/rajahmundry.jpg";
 import jack_fruit from "../assets/images/jack-fruit.jpg";
 import memories_village_life from "../assets/images/memories-village-life-experience.jpg";
@@ -457,15 +472,130 @@ export const destinations = [
    }
 ];
 
+const commonsPhoto = (file, creator, license, url) => ({
+  url,
+  attribution: {
+    creator,
+    license,
+    source: `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file)}`
+  }
+});
+
+const eventPhotos = {
+  godavariBoat: commonsPhoto(
+    "Godavari river boat.jpg",
+    "Kskumar40",
+    "CC BY-SA 4.0",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Godavari_river_boat.jpg/3840px-Godavari_river_boat.jpg"
+  ),
+  flowerNursery: commonsPhoto(
+    "Flowers Nursery in Pune.jpg",
+    "Katharva",
+    "CC BY-SA 3.0",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Flowers_Nursery_in_Pune.jpg/3840px-Flowers_Nursery_in_Pune.jpg"
+  ),
+  templeProcession: commonsPhoto(
+    "15th century Hazara Rama temple outer wall with Maha Ramanavami procession, Hampi Hindu monuments Karnataka.jpg",
+    "Ms Sarah Welch",
+    "CC BY-SA 4.0",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/15th_century_Hazara_Rama_temple_outer_wall_with_Maha_Ramanavami_procession%2C_Hampi_Hindu_monuments_Karnataka.jpg/3840px-15th_century_Hazara_Rama_temple_outer_wall_with_Maha_Ramanavami_procession%2C_Hampi_Hindu_monuments_Karnataka.jpg"
+  ),
+  templeFestival: commonsPhoto(
+    "071017 Vitthala temple complex aerial view, Hampi Karnataka.jpg",
+    "Ms Sarah Welch",
+    "CC0",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/071017_Vitthala_temple_complex_aerial_view%2C_Hampi_Karnataka.jpg/3840px-071017_Vitthala_temple_complex_aerial_view%2C_Hampi_Karnataka.jpg"
+  ),
+  draksharamamTemple: commonsPhoto(
+    "Draksharamam Temple.jpg",
+    "Kavurisgs",
+    "CC BY-SA 4.0",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Draksharamam_Temple.jpg/3840px-Draksharamam_Temple.jpg"
+  ),
+  muramallaTemple: commonsPhoto(
+    "Muramalla Veereswara Swamy Temple Entrance, January 2024.jpg",
+    "Veera Narayana",
+    "CC BY-SA 4.0",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Muramalla_Veereswara_Swamy_Temple_Entrance%2C_January_2024.jpg/3840px-Muramalla_Veereswara_Swamy_Temple_Entrance%2C_January_2024.jpg"
+  ),
+  vinayakaIdol: commonsPhoto(
+    "Vinayaka Chavithi Idol Gudihathnoor.jpg",
+    "Athram Rajkumar",
+    "CC BY-SA 4.0",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Vinayaka_Chavithi_Idol_Gudihathnoor.jpg/3840px-Vinayaka_Chavithi_Idol_Gudihathnoor.jpg"
+  ),
+  annavaramTemple: commonsPhoto(
+    "Side view from Annavaram Hill.jpg",
+    "Pinkypun",
+    "CC0",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Side_view_from_Annavaram_Hill.jpg/3840px-Side_view_from_Annavaram_Hill.jpg"
+  ),
+  pithapuramChariot: commonsPhoto(
+    "Chariot of Kunti Madhavaswamy Temple in Pithapuram.jpg",
+    "Adityamadhav83",
+    "CC BY 4.0",
+    "https://upload.wikimedia.org/wikipedia/commons/5/5b/Chariot_of_Kunti_Madhavaswamy_Temple_in_Pithapuram.jpg"
+  ),
+  samarlakotaTemple: commonsPhoto(
+    "Kumararama, Samarlakota.jpg",
+    "Aditya Gopal",
+    "CC BY-SA 3.0",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Kumararama%2C_Samarlakota.jpg/3840px-Kumararama%2C_Samarlakota.jpg"
+  ),
+  sankranti: commonsPhoto(
+    "A night lit up on Makar Sankranti Uttarayana Festival with Kites and Lights India.jpg",
+    "Bhavishya Goel",
+    "CC BY 2.0",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/A_night_lit_up_on_Makar_Sankranti_Uttarayana_Festival_with_Kites_and_Lights_India.jpg/3840px-A_night_lit_up_on_Makar_Sankranti_Uttarayana_Festival_with_Kites_and_Lights_India.jpg"
+  ),
+  coconutTrees: commonsPhoto(
+    "Abandoned coconut trees in Tamilnadu.jpg",
+    "Sindugab",
+    "CC0",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Abandoned_coconut_trees_in_Tamilnadu.jpg/3840px-Abandoned_coconut_trees_in_Tamilnadu.jpg"
+  ),
+  kartikaiDeepam: commonsPhoto(
+    "Kartikai deepam.jpg",
+    "Durgha B",
+    "CC BY-SA 4.0",
+    "https://upload.wikimedia.org/wikipedia/commons/7/76/Kartikai_deepam.jpg"
+  ),
+  yanam: commonsPhoto(
+    "Bezawada Bapanayya Naidu Statue at Yanam Beach, Yanam.jpg",
+    "Pranayraj1985",
+    "CC BY-SA 4.0",
+    "https://upload.wikimedia.org/wikipedia/commons/0/0d/Bezawada_Bapanayya_Naidu_Statue_at_Yanam_Beach%2C_Yanam.jpg"
+  ),
+  kanuma: commonsPhoto(
+    "Mysore, painted cow (9902663093).jpg",
+    "Arian Zwegers",
+    "CC BY 2.0",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Mysore%2C_painted_cow_%289902663093%29.jpg/3840px-Mysore%2C_painted_cow_%289902663093%29.jpg"
+  )
+};
+
 export const events = [
-  { id: "elephant_festival", heading: "Elephant Festival", description: "Kadiyam Temple", date: "Jul 17", image: elephant_festival, longDesc: "The magnificent ritual of feeding elephants at Kadiyam Temple.", highlights: ["Traditional elephant feeding ceremony", "Cultural performances"], location: "Kadiyam, East Godavari" },
-  { id: "rajahmundry-elephant-feeding", heading: "Elephant Feeding at Rajahmundry Temple", description: "Rajahmundry Temple, Godavari", date: "Jul 17", image: elephant_feeding, longDesc: "The age-old tradition of feeding elephants at the famous Rajahmundry Temple.", highlights: ["Grand elephant feeding ceremony"], location: "Rajahmundry Temple, Godavari, East Godavari" },
-  { id: "godavari-river-festival", heading: "Godavari River Festival 2026", description: "Eluru", date: "Jul 30 - Aug 2", image: godavari_river, longDesc: "The 12th edition of the Godavari River Festival.", highlights: ["Whitewater kayaking competitions"], location: "Godavari River, Eluru, East Godavari" },
-  { id: "harvest-festival", heading: "Harvest Festival", description: "", date: "Aug 12", image: harvest, longDesc: "An important ritual observed by Hindus in East Godavari.", highlights: ["Ancestral rituals and prayers"], location: "All over East Godavari" },
-  { id: "pongal-festival", heading: "Pongal", description: "Rajahmundry", date: "Aug 16", image: pongal, longDesc: "A vibrant festival celebrated in Rajahmundry.", highlights: ["Colorful processions"], location: "Rajahmundry, East Godavari" },
-  { id: "sankranti", heading: "Sankranti", description: "All over East Godavari", date: "Aug 26", image: sankranti, longDesc: "The most important day of the Sankranti festival.", highlights: ["Grand Sankranti feast"], location: "All over East Godavari" },
-  { id: "jallikattu", heading: "Jallikattu", description: "Swaraj Round, Godavari", date: "Aug 29", image: jallikattu, longDesc: "A colourful folk art where performers painted as tigers dance.", highlights: ["Tiger dance performances"], location: "Swaraj Round, Godavari, East Godavari" },
-  { id: "godavari-pushkaram", heading: "Godavari Pushkaram", description: "Godavari River", date: "Aug 30", image: godavari_pushkaram, longDesc: "A thrilling boat race held on the Godavari River.", highlights: ["Boat race competition"], location: "Godavari River, East Godavari" }
+  { id: "godavari-boat-festival", heading: "Godavari Boat Festival", description: "Godavari River", date: "January 2", calendarMonth: 0, calendarDay: 2, image: eventPhotos.godavariBoat.url, imageAttribution: eventPhotos.godavariBoat.attribution, longDesc: "A celebration of the Godavari River and its boat-racing traditions.", highlights: ["River celebrations", "Boat festival"], location: "Godavari River" },
+  { id: "kadiyam-flower-festival", heading: "Kadiyam Flower Festival", description: "Kadiyam", date: "December 12–13, 2026", calendarMonth: 11, calendarDay: 12, calendarYear: 2026, image: kadiyam_flower_festival, longDesc: "A flower and horticulture festival showcasing Kadiyam's nurseries, ornamental plants, and local horticultural heritage.", highlights: ["Flower and plant displays", "Kadiyam nursery visits"], location: "Kadiyam" },
+  { id: "prabhala-teertham", heading: "Prabhala Teertham", description: "Jaggannathota, Ambajipeta", date: "January 16, 2026", calendarMonth: 0, calendarDay: 16, calendarYear: 2026, image: prabhala_teertham, longDesc: "A traditional festival featuring large decorated Prabhalu carried in colourful processions.", highlights: ["Decorated Prabhalu", "Traditional processions"], location: "Jaggannathota, Ambajipeta" },
+  { id: "veerallamma-jatara", heading: "Veerallamma Jatara", description: "Anaparthi", date: "January (date varies)", calendarMonth: 0, image: veerallamma_jatara, longDesc: "An annual jatara celebrated in Anaparthi in honour of Veerallamma.", highlights: ["Annual local jatara", "Community celebrations"], location: "Anaparthi" },
+  { id: "bapanamma-jatara", heading: "Bapanamma Jatara", description: "Anaparthi", date: "Annual (date varies)", calendarMonth: null, image: bapanamma_jatara, longDesc: "An annual jatara in Anaparthi. The celebration date varies from year to year.", highlights: ["Annual local jatara", "Community celebrations"], location: "Anaparthi" },
+  { id: "antarvedi-kalyanotsavam", heading: "Antarvedi Kalyanotsavam", description: "Antarvedi", date: "February", calendarMonth: 1, image: antarvedi_kalyanotsavam, longDesc: "A major temple festival and Kalyanotsavam celebrated at Antarvedi.", highlights: ["Temple ceremonies", "Devotional celebrations"], location: "Antarvedi" },
+  { id: "draksharamam-maha-shivaratri", heading: "Draksharamam Maha Shivaratri", description: "Draksharamam", date: "February–March", calendarMonth: 1, image: draksharamam_maha_shivaratri, longDesc: "Maha Shivaratri celebrations at the historic Draksharamam temple.", highlights: ["Maha Shivaratri worship", "Temple celebrations"], location: "Draksharamam" },
+  { id: "ainavilli-vinayaka-utsavalu", heading: "Ainavilli Vinayaka Utsavalu", description: "Ainavilli", date: "August–September", calendarMonth: 7, image: ainavilli_vinayaka_utsavalu, longDesc: "Annual Vinayaka Utsavalu celebrated at Ainavilli.", highlights: ["Vinayaka worship", "Temple festivities"], location: "Ainavilli" },
+  { id: "satyanarayana-swamy-kalyanotsavam", heading: "Sri Satyanarayana Swamy Kalyanotsavam", description: "Annavaram", date: "May", calendarMonth: 4, image: satyanarayana_swamy_kalyanotsavam, longDesc: "The annual Kalyanotsavam of Sri Satyanarayana Swamy at Annavaram.", highlights: ["Temple Kalyanotsavam", "Devotional ceremonies"], location: "Annavaram" },
+  { id: "kukkuteswara-swamy-utsavalu", heading: "Sri Kukkuteswara Swamy Utsavalu", description: "Pithapuram", date: "February", calendarMonth: 1, image: kukkuteswara_swamy_utsavalu, longDesc: "Temple utsavalu held in honour of Sri Kukkuteswara Swamy at Pithapuram.", highlights: ["Temple worship", "Annual utsavalu"], location: "Pithapuram" },
+  { id: "samarlakota-temple-utsavalu", heading: "Samarlakota Temple Utsavalu", description: "Samarlakota", date: "February", calendarMonth: 1, image: samarlakota_temple_utsavalu, longDesc: "Annual temple utsavalu celebrated at Samarlakota.", highlights: ["Temple ceremonies", "Community celebrations"], location: "Samarlakota" },
+  { id: "muramalla-kalyanotsavam", heading: "Muramalla Kalyanotsavam", description: "Muramalla", date: "Throughout the year", calendarMonth: null, allYear: true, image: muramalla_kalyanotsavam, longDesc: "Kalyanotsavam celebrations are held throughout the year at Muramalla.", highlights: ["Kalyanotsavam ceremonies", "Year-round celebrations"], location: "Muramalla" },
+  { id: "konaseema-sankranti-sambaralu", heading: "Konaseema Sankranti Sambaralu", description: "Konaseema villages", date: "January", calendarMonth: 0, image: konaseema_sankranti_sambaralu, longDesc: "Sankranti celebrations across the villages of Konaseema.", highlights: ["Village festivities", "Seasonal traditions"], location: "Konaseema villages" },
+  { id: "coconut-festival", heading: "Coconut Festival", description: "Konaseema", date: "September (dates vary)", calendarMonth: 8, image: eventPhotos.coconutTrees.url, imageAttribution: eventPhotos.coconutTrees.attribution, longDesc: "A celebration of the coconut-growing heritage, local products, and cultural identity of Konaseema.", highlights: ["Coconut products", "Local cultural celebrations"], location: "Konaseema" },
+  { id: "godavari-pushkaralu-2027", heading: "Godavari Pushkaralu", description: "Rajamahendravaram", date: "2027", calendarMonth: null, calendarYear: 2027, image: godavari_pushkaralu, longDesc: "Godavari Pushkaralu, held at the Godavari ghats, is a major river pilgrimage and bathing festival.", highlights: ["Godavari river rituals", "Pilgrimage at the river ghats"], location: "Rajamahendravaram" },
+  { id: "karthika-deepotsavam", heading: "Karthika Deepotsavam", description: "Draksharamam and Godavari ghats", date: "November", calendarMonth: 10, image: karthika_deepotsavam, longDesc: "Karthika Deepotsavam celebrations at Draksharamam and along the Godavari ghats.", highlights: ["Ceremonial lamps", "Worship at temples and river ghats"], location: "Draksharamam and Godavari ghats" },
+  { id: "sri-rama-navami", heading: "Sri Rama Navami Celebrations", description: "Various temples", date: "March–April", calendarMonth: 2, image: sri_rama_navami, longDesc: "Sri Rama Navami celebrations observed at temples across East Godavari.", highlights: ["Temple worship", "Rama Navami celebrations"], location: "Various temples" },
+  { id: "devi-navaratri-mahotsavam", heading: "Devi Navaratri Mahotsavam", description: "Rajamahendravaram", date: "September–October", calendarMonth: 8, image: devi_navaratri_mahotsavam, longDesc: "Devi Navaratri Mahotsavam celebrated in Rajamahendravaram.", highlights: ["Navaratri worship", "Festive ceremonies"], location: "Rajamahendravaram" },
+  { id: "kanuma-celebrations", heading: "Kanuma Celebrations", description: "Konaseema villages", date: "January 16, 2026", calendarMonth: 0, calendarDay: 16, calendarYear: 2026, image: eventPhotos.kanuma.url, imageAttribution: eventPhotos.kanuma.attribution, longDesc: "Kanuma celebrations in the villages of Konaseema.", highlights: ["Village festivities", "Harvest traditions"], location: "Konaseema villages" },
+  { id: "giripradakshinam", heading: "Giripradakshinam", description: "Annavaram", date: "Karthika Pournami (date varies)", calendarMonth: 10, image: eventPhotos.annavaramTemple.url, imageAttribution: eventPhotos.annavaramTemple.attribution, longDesc: "Giripradakshinam at Annavaram, observed on Karthika Pournami.", highlights: ["Sacred circumambulation", "Karthika Pournami observance"], location: "Annavaram" },
+  { id: "dee-jwala-toranam", heading: "Dee Jwala Toranam", description: "Annavaram", date: "Karthika Masam (date varies)", calendarMonth: 10, image: eventPhotos.kartikaiDeepam.url, imageAttribution: eventPhotos.kartikaiDeepam.attribution, longDesc: "Dee Jwala Toranam celebrations at Annavaram during Karthika Masam.", highlights: ["Ceremonial lights", "Karthika Masam observance"], location: "Annavaram" }
 ];
 
 export const heroSlides = [
@@ -485,7 +615,13 @@ export const ebrochures = [
 export const photoGallery = [
   { heading: "Peddapuram Beach", description: "The sandy shores and calm ambience of Peddapuram Beach make it an ideal getaway destination for families.", image: gallary_peddapuram_beach },
   { heading: "Elephant Herd at Yanam Wildlife Sanctuary", description: "In the Yanam Wildlife Sanctuary in East Godavari district an elephant herd moves gracefully towards a serene lake.", image: gallary_elephant_herd },
-  { heading: "Kalaripayattu", description: "Kalaripayattu is an Indian martial art and fighting style that originated in modern-day East Godavari.", image: gallary_Kalaripayattu }
+  { heading: "Kalaripayattu", description: "Kalaripayattu is an Indian martial art and fighting style that originated in modern-day East Godavari.", image: gallary_Kalaripayattu },
+  { heading: "Godavari Bridges", description: "Historic rail and road bridges span the Godavari River at Rajamahendravaram.", image: exploreRajahmundryBridge },
+  { heading: "Coringa Wildlife Sanctuary", description: "Explore the mangrove forests and rich wildlife of Coringa Wildlife Sanctuary.", image: exploreCoringaWildlife },
+  { heading: "Papi Hills", description: "Discover the scenic hills, river islands, and lush landscapes along the Godavari.", image: explorePapiHill },
+  { heading: "Maredumilli Forests", description: "Experience the dense Eastern Ghats forests and natural beauty of Maredumilli.", image: exploreMaridimilliHill },
+  { heading: "Dowleswaram Cotton Barrage", description: "See the historic barrage across the Godavari, built under Sir Arthur Cotton.", image: heritageCottonBridge },
+  { heading: "Fishing Experience", description: "Experience traditional fishing with local communities along the Godavari River.", image: responsible_fishing }
 ];
 
 export const experiences = [

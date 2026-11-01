@@ -583,12 +583,25 @@
   transition: transform 0.8s linear;
 }
 
+.event-card-link {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+}
+
+.event-card-link:focus-visible {
+  outline: 3px solid #ff9d00;
+  outline-offset: -3px;
+}
+
 .event-card:hover img {
   transform: scale(1.1);
 }
 
 .event-card-overlay {
   position: absolute;
+  z-index: 2;
+  pointer-events: none;
   bottom: 0;
   left: 0;
   right: 0;
@@ -622,6 +635,10 @@
   line-height: 1.5;
   margin: 0;
   color: #E2E8F0;
+}
+
+.event-card-overlay .event-image-credit {
+  pointer-events: auto;
 }
 
 .events-explore-wrapper {

@@ -87,6 +87,7 @@ const ScrollToTopButton = () => {
 // ============ APP CONTENT ============
 function AppContent() {
   const location = useLocation();
+  const hasPageLoadingEffects = /^\/(destinations|destination|nearby-destination|destination-page|experiences|experience|services|spirituality)(\/|$)/.test(location.pathname);
   
   return (
     <div className="App">
@@ -94,7 +95,14 @@ function AppContent() {
       <ScrollToTop />
       <ScrollToTopButton />
       <BackButton />
-      <main className={location.pathname === '/' ? 'home-page' : location.pathname === '/spirituality' ? 'spirituality-page-main' : ''}>
+      <main
+        key={hasPageLoadingEffects ? location.pathname : undefined}
+        className={[
+          location.pathname === '/' ? 'home-page' : '',
+          location.pathname === '/spirituality' ? 'spirituality-page-main' : '',
+          hasPageLoadingEffects ? 'page-loading-effects' : ''
+        ].filter(Boolean).join(' ')}
+      >
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/trending-places" element={<TrendingPlaces />} />
