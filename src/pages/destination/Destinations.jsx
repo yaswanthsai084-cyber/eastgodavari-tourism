@@ -22,6 +22,7 @@ import exploreDharapalliWaterfalls from '../../assets/images/explore-dharapalli-
 import explorePolluruWaterfall from '../../assets/images/explore-polluru-waterfall.jpg';
 import exploreRampaWaterfall from '../../assets/images/explore-rampa-waterfall.jpg';
 import exploreCoringaWildlife from '../../assets/images/explore-coringa-willdlife.jpg';
+import coringaWildlifeSanctuaryImage from '../../assets/images/coringa-wildlife-sanctuary.png';
 import exploreRamanayuniWildlife from '../../assets/images/explore-ramanayuni-wildlife.jpg';
 import explorePapikondaWildlife from '../../assets/images/explore-papikonda-wildlife.jpg';
 import exploreAtreyapuramWildlife from '../../assets/images/explore-atreyapuram-wildlife.jpg';
@@ -128,7 +129,7 @@ const Destinations = () => {
     { id: 25, category: 'waterfalls', title: 'Rampa Waterfall', alt: 'Rampa Waterfall', src: exploreRampaWaterfall, description: 'Beautiful cascade in a serene natural setting, ideal for picnics and photography.', address: 'Rampa, East Godavari, Andhra Pradesh' },
     
     // Wildlife (5)
-    { id: 27, category: 'wildlife', title: 'Coringa Wildlife Sanctuary', alt: 'Coringa Wildlife Sanctuary', src: exploreCoringaWildlife, description: 'Protected mangroves, tidal creeks, wildlife, and bird habitat near Kakinada.', address: 'Coringa Wildlife Sanctuary, Kakinada, Andhra Pradesh' },
+    { id: 27, category: 'wildlife', title: 'Coringa Wildlife Sanctuary', alt: 'Coringa Wildlife Sanctuary', src: coringaWildlifeSanctuaryImage, description: 'Protected mangroves, tidal creeks, wildlife, and bird habitat near Kakinada.', address: 'Coringa Wildlife Sanctuary, Kakinada, Andhra Pradesh' },
     { id: 28, category: 'wildlife', title: 'Ramanayuni Wildlife', alt: 'Ramanayuni Wildlife', src: exploreRamanayuniWildlife, description: 'Dense forest reserve with rich biodiversity and exciting safari experiences.', address: 'Ramanayuni Wildlife Sanctuary, East Godavari' },
     { id: 29, category: 'wildlife', title: 'Atreyapuram Wildlife', alt: 'Atreyapuram Wildlife', src: exploreAtreyapuramWildlife, description: 'Natural habitat for various species with well-maintained trails and viewing points.', address: 'Atreyapuram, East Godavari, Andhra Pradesh' },
     { id: 30, category: 'wildlife', title: 'Papikonda National Park', alt: 'Papikonda National Park', src: explorePapikondaWildlife, description: 'Protected forest and wildlife landscape around Papikondalu and the Godavari.', address: 'Papikonda National Park, Andhra Pradesh' },

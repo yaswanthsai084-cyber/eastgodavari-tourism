@@ -1,4 +1,17 @@
 import exploreYanamBeach from '../assets/images/explore-yanam-beach.jpg';
+import antarvediBeachImage from '../assets/images/antarvedi-beach.png';
+import godavariSeaMouthImage from '../assets/images/godavari-sea-mouth.png';
+import jalataranginiWaterfallsImage from '../assets/images/jalatarangini-waterfalls.png';
+import swarnadharaWaterfallsImage from '../assets/images/swarnadhara-waterfalls.png';
+import bhupathipalemReservoirImage from '../assets/images/bhupathipalem-reservoir.png';
+import yeleruReservoirImage from '../assets/images/yeleru-reservoir.png';
+import sokuleruVaguViewpointImage from '../assets/images/sokuleru-vagu-viewpoint.png';
+import pinjarakondaImage from '../assets/images/pinjarakonda.png';
+import seethapalliImage from '../assets/images/seethapalli.png';
+import coringaWildlifeSanctuaryImage from '../assets/images/coringa-wildlife-sanctuary.png';
+import rampachodavaramForestImage from '../assets/images/rampachodavaram-forest.png';
+import addateegalaForestImage from '../assets/images/addateegala-forest.png';
+import kadiamNurseriesImage from '../assets/images/kadiam-nurseries.png';
 import exploreCoringaBeach from '../assets/images/explore-coringa-beach.jpg';
 import exploreGautamiRiver from '../assets/images/explore-gautami-river.jpg';
 import exploreAmruthandhraWaterfall from '../assets/images/explore-amruthandhra-waterfall.jpg';
@@ -11,6 +24,21 @@ import contactKadiyam from '../assets/images/contact-kadiyam.jpg';
 import exploreVinayakaTemple from '../assets/images/explore-vinayaka-temple.jpg';
 import exploreRamanayuniTemple from '../assets/images/explore-ramanayuni-temple.jpg';
 import exploreAmalapuramTemple from '../assets/images/explore-amalapuram-temple.jpg';
+import annavaramTempleImage from '../assets/images/annavaram-satyanarayana-temple.png';
+import draksharamamTempleImage from '../assets/images/draksharamam-bhimeswara-temple.png';
+import antarvediTempleImage from '../assets/images/antarvedi-lakshmi-narasimha-temple.png';
+import ainavilliTempleImage from '../assets/images/ainavilli-siddhi-vinayaka-temple.png';
+import bikkavoluGolingeswaraTempleImage from '../assets/images/bikkavolu-golingeswara-temple.png';
+import pithapuramKukkuteswaraTempleImage from '../assets/images/pithapuram-kukkuteswara-temple.png';
+import iskconTempleImage from '../assets/images/iskcon-rajamahendravaram.png';
+import adurruBuddhistSiteImage from '../assets/images/adurru-buddhist-site.png';
+import sirArthurCottonMuseumImage from '../assets/images/sir-arthur-cotton-museum.png';
+import havelockBridgeImage from '../assets/images/havelock-bridge.png';
+import peddapuramFortCardImage from '../assets/images/peddapuram-fort-card.png';
+import pushkarGhatImage from '../assets/images/pushkar-ghat.png';
+import gowthamiGhatImage from '../assets/images/gowthami-ghat.png';
+import saraswatiGhatImage from '../assets/images/saraswati-ghat.png';
+import pattiseemaImage from '../assets/images/pattiseema.png';
 import exploreKorukondaFort from '../assets/images/explore-korukonda-fort.jpg';
 import explorePeddapuramFort from '../assets/images/explore-peddapuram-fort.jpg';
 import exploreRajahmundryBridge from '../assets/images/explore-rajahmundry-bridge.jpg';
@@ -27,10 +55,8 @@ const destinationGroups = [
     categoryLabel: 'beaches and coastal attractions',
     images: [exploreYanamBeach, exploreCoringaBeach, exploreGautamiRiver],
     places: [
-      ['Vodalarevu Beach', 'Vodalarevu'],
-      ['Antarvedi Beach', 'Antarvedi'],
-      ['Sagar Sangamam', 'Sakinetipalli'],
-      ['Godavari Sea Mouth', 'Antarvedi']
+      ['Antarvedi Beach', 'Antarvedi', undefined, antarvediBeachImage],
+      ['Godavari Sea Mouth', 'Antarvedi', undefined, godavariSeaMouthImage]
     ]
   },
   {
@@ -38,13 +64,13 @@ const destinationGroups = [
     categoryLabel: 'waterfalls and nature attractions',
     images: [exploreAmruthandhraWaterfall, exploreGodavariWaterfall, exploreRampaWaterfall],
     places: [
-      ['Jalatarangini Waterfalls', 'Rampachodavaram'],
-      ['Swarnadhara Waterfalls', 'Rampachodavaram'],
-      ['Bhupathipalem Reservoir', 'Rampachodavaram'],
-      ['Yeleru Reservoir', 'Yeleswaram'],
-      ['Sokuleru Vagu Viewpoint', 'Sokuleru'],
-      ['Pinjarakonda', 'Addateegala'],
-      ['Seethapalli', 'Seethapalli']
+      ['Jalatarangini Waterfalls', 'Rampachodavaram', undefined, jalataranginiWaterfallsImage],
+      ['Swarnadhara Waterfalls', 'Rampachodavaram', undefined, swarnadharaWaterfallsImage],
+      ['Bhupathipalem Reservoir', 'Rampachodavaram', undefined, bhupathipalemReservoirImage],
+      ['Yeleru Reservoir', 'Yeleswaram', undefined, yeleruReservoirImage],
+      ['Sokuleru Vagu Viewpoint', 'Sokuleru', undefined, sokuleruVaguViewpointImage],
+      ['Pinjarakonda', 'Addateegala', undefined, pinjarakondaImage],
+      ['Seethapalli', 'Seethapalli', undefined, seethapalliImage]
     ]
   },
   {
@@ -52,10 +78,9 @@ const destinationGroups = [
     categoryLabel: 'forests and wildlife attractions',
     images: [exploreMaridimilliHill, exploreCoringaWildlife, explorePapikondaWildlife, contactKadiyam],
     places: [
-      ['Rampachodavaram Forest', 'Rampachodavaram'],
-      ['Addateegala Forest', 'Addateegala'],
-      ['Seethapalli Forest', 'Seethapalli'],
-      ['Kadiam Nurseries', 'Kadiam']
+      ['Rampachodavaram Forest', 'Rampachodavaram', undefined, rampachodavaramForestImage],
+      ['Addateegala Forest', 'Addateegala', undefined, addateegalaForestImage],
+      ['Kadiam Nurseries', 'Kadiam', undefined, kadiamNurseriesImage]
     ]
   },
   {
@@ -63,19 +88,13 @@ const destinationGroups = [
     categoryLabel: 'temples and religious places',
     images: [exploreAmalapuramTemple, exploreVinayakaTemple, exploreRamanayuniTemple],
     places: [
-      ['Annavaram Satyanarayana Swamy Temple', 'Annavaram'],
-      ['Draksharamam Bhimeswara Swamy Temple', 'Draksharamam'],
-      ['Antarvedi Lakshmi Narasimha Swamy Temple', 'Antarvedi'],
-      ['Ainavilli Siddhi Vinayaka Temple', 'Ainavilli'],
-      ['Ryali Jaganmohini Kesava Swamy Temple', 'Ryali'],
-      ['Bikkavolu Golingeswara Swamy Temple', 'Bikkavolu'],
-      ['Pithapuram Kukkuteswara Swamy Temple', 'Pithapuram'],
-      ['Pithapuram Puruhootika Devi Temple', 'Pithapuram'],
-      ['Appanapalli Balaji Temple', 'Appanapalli'],
-      ['Muramalla Veereswara Swamy Temple', 'Muramalla'],
-      ['Thantikonda Venkateswara Swamy Temple', 'Thantikonda'],
-      ['Markandeya Swamy Temple', 'Rajamahendravaram'],
-      ['ISKCON Temple, Rajamahendravaram', 'Rajamahendravaram']
+      ['Annavaram Satyanarayana Swamy Temple', 'Annavaram', undefined, annavaramTempleImage],
+      ['Draksharamam Bhimeswara Swamy Temple', 'Draksharamam', undefined, draksharamamTempleImage],
+      ['Antarvedi Lakshmi Narasimha Swamy Temple', 'Antarvedi', undefined, antarvediTempleImage],
+      ['Ainavilli Siddhi Vinayaka Temple', 'Ainavilli', undefined, ainavilliTempleImage],
+      ['Bikkavolu Golingeswara Swamy Temple', 'Bikkavolu', undefined, bikkavoluGolingeswaraTempleImage],
+      ['Pithapuram Kukkuteswara Swamy Temple', 'Pithapuram', undefined, pithapuramKukkuteswaraTempleImage],
+      ['ISKCON Temple, Rajamahendravaram', 'Rajamahendravaram', undefined, iskconTempleImage]
     ]
   },
   {
@@ -83,11 +102,10 @@ const destinationGroups = [
     categoryLabel: 'historical and heritage places',
     images: [exploreRajahmundryBridge, exploreCottonBridge, exploreKorukondaFort],
     places: [
-      ['Adurru Buddhist Archaeological Site', 'Adurru'],
-      ['Sir Arthur Cotton Museum', 'Dowleswaram'],
-      ['Havelock Bridge', 'Rajamahendravaram'],
-      ['Peddapuram Fort', 'Peddapuram', 8, explorePeddapuramFort],
-      ['Rajamahendravaram Heritage Streets', 'Rajamahendravaram']
+      ['Adurru Buddhist Archaeological Site', 'Adurru', undefined, adurruBuddhistSiteImage],
+      ['Sir Arthur Cotton Museum', 'Dowleswaram', undefined, sirArthurCottonMuseumImage],
+      ['Havelock Bridge', 'Rajamahendravaram', undefined, havelockBridgeImage],
+      ['Peddapuram Fort', 'Peddapuram', 8, peddapuramFortCardImage]
     ]
   },
   {
@@ -95,12 +113,10 @@ const destinationGroups = [
     categoryLabel: 'rivers, ghats, and scenic locations',
     images: [exploreKotipalliRiver, exploreGautamiRiver, exploreYalamanchiliLanka],
     places: [
-      ['Pushkar Ghat', 'Rajamahendravaram'],
-      ['Gowthami Ghat', 'Rajamahendravaram'],
-      ['Saraswati Ghat', 'Rajamahendravaram'],
-      ['Kotilingala Revu', 'Rajamahendravaram'],
-      ['Padmavathi Ghat', 'Rajamahendravaram'],
-      ['Pattiseema', 'Pattiseema'],
+      ['Pushkar Ghat', 'Rajamahendravaram', undefined, pushkarGhatImage],
+      ['Gowthami Ghat', 'Rajamahendravaram', undefined, gowthamiGhatImage],
+      ['Saraswati Ghat', 'Rajamahendravaram', undefined, saraswatiGhatImage],
+      ['Pattiseema', 'Pattiseema', undefined, pattiseemaImage],
       ['Seethanagaram Godavari Riverbank', 'Seethanagaram'],
       ['Goshpada Kshetram', 'Kovvur']
     ]
