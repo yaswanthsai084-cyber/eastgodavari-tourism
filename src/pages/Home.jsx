@@ -33,34 +33,84 @@ const Hero = () => {
   );
 };
 
-const HomeVideoBackdrop = ({ status, onReady, onError }) => (
-  <div className={`home-video-backdrop video-${status}`}>
-    <video
-      className="home-background-video"
-      src={heroSlides[0].video}
-      preload="metadata"
-      playsInline
-      muted
-      autoPlay
-      loop
-      onCanPlay={onReady}
-      onError={onError}
-      aria-hidden="true"
-      tabIndex="-1"
-    />
-    {status === 'loading' && (
-      <div className="home-video-status" role="status" aria-live="polite">
-        <span className="home-video-spinner" />
-        <span>Loading East Godavari</span>
-      </div>
-    )}
-    {status === 'error' && (
-      <div className="home-video-error" role="status">
-        Video unavailable
-      </div>
-    )}
-  </div>
-);
+const HomeVideoBackdrop = ({ status, onReady, onError }) => {
+  const videoRef = useRef(null);
+  const hasAttemptedAudio = useRef(false);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const startVideo = () => {
+    const video = videoRef.current;
+    if (!video || hasAttemptedAudio.current) return;
+    hasAttemptedAudio.current = true;
+
+    video.muted = false;
+    video.play()
+      .then(() => setIsMuted(false))
+      .catch(() => {
+        // Browsers may block audible autoplay. Keep the video running silently
+        // until the visitor explicitly enables sound.
+        video.muted = true;
+        setIsMuted(true);
+        video.play().catch(() => {});
+      });
+  };
+
+  const toggleSound = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = !isMuted;
+    setIsMuted(video.muted);
+    if (!video.muted) {
+      video.play().catch(() => {
+        video.muted = true;
+        setIsMuted(true);
+      });
+    }
+  };
+
+  return (
+    <div className={`home-video-backdrop video-${status}`}>
+      <video
+        ref={videoRef}
+        className="home-background-video"
+        src={heroSlides[0].video}
+        preload="metadata"
+        playsInline
+        muted={isMuted}
+        autoPlay
+        loop
+        onCanPlay={() => {
+          onReady();
+          startVideo();
+        }}
+        onError={onError}
+        aria-hidden="true"
+        tabIndex="-1"
+      />
+      <button
+        type="button"
+        className="home-video-sound-toggle"
+        onClick={toggleSound}
+        aria-label={isMuted ? 'Turn on hero video sound' : 'Mute hero video sound'}
+      >
+        <span aria-hidden="true">{isMuted ? '🔇' : '🔊'}</span>
+        <span>{isMuted ? 'Sound on' : 'Mute'}</span>
+      </button>
+      {status === 'loading' && (
+        <div className="home-video-status" role="status" aria-live="polite">
+          <span className="home-video-spinner" />
+          <span>Loading East Godavari</span>
+        </div>
+      )}
+      {status === 'error' && (
+        <div className="home-video-error" role="status">
+          Video unavailable
+        </div>
+      )}
+    </div>
+  );
+};
 const ScrollToTop = () => {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
