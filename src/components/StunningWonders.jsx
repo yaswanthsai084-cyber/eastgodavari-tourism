@@ -4,6 +4,7 @@ import { SectionHeader } from './HomeSectionHelpers';
 import exploreRajahmundryBridge from '../assets/images/explore-rajahmundry-bridge.jpg';
 import explorePapiHill from '../assets/images/explore-papi-hill.jpg';
 import exploreMaridimilliHill from '../assets/images/explore-maredimilli-hill.jpg';
+import exploreCoringaWildlife from '../assets/images/explore-coringa-willdlife.jpg';
 import './StunningWonders.css';
 
 const wonders = [
@@ -24,6 +25,12 @@ const wonders = [
     description: 'Discover the Eastern Ghats forests, streams, and natural beauty of Maredumilli.',
     image: exploreMaridimilliHill,
     link: '/destination-page/18'
+  },
+  {
+    heading: 'Coringa Wildlife Sanctuary',
+    description: 'Explore mangrove forests, tidal creeks, and rich wildlife near the Godavari estuary.',
+    image: exploreCoringaWildlife,
+    link: '/destination-page/27'
   }
 ];
 

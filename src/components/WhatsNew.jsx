@@ -9,8 +9,8 @@ const WhatsNew = () => {
 
   const whatsNewItems = [
     {
-      heading: "Godavari River Festival 2026",
-      description: "The 12th edition of the Godavari River Festival is set to take place from July 30 to August 2, 2026, in the exhilarating waters of the Godavari River in Eluru.",
+      heading: "Godavari Pushkaram 2027",
+      description: "The 12th edition of the Godavari River Festival is set to take place from July 30 to August 2, 2027, in the exhilarating waters of the Godavari River in Rajamundry.",
       image: godavari_pushkaram,
       video: "/pushkaralu.mp4",
       btnText: "More",

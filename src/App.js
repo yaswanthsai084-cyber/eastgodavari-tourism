@@ -34,6 +34,7 @@ import AllTourGuides from './pages/plan-trip/AllTourGuides';
 import HowToReach from './pages/plan-trip/HowToReach';
 import EastGodavariMap from './pages/plan-trip/EastGodavariMap';
 import LivingFacilities from './pages/plan-trip/LivingFacilities';
+import HospitalityDetail from './pages/HospitalityDetail';
 
 // ============ SCROLL TO TOP ============
 const ScrollToTop = () => {
@@ -131,6 +132,7 @@ function AppContent() {
           <Route path="/how-to-reach" element={<HowToReach />} />
           <Route path="/east-godavari-map" element={<EastGodavariMap />} />
           <Route path="/living-facilities" element={<LivingFacilities />} />
+          <Route path="/hospitality/:id" element={<HospitalityDetail />} />
           <Route path="/all-tourist-offices" element={<AllTouristOffices />} />
           <Route path="/services/:destinationId/tourist-office" element={<TouristOffice />} />
           <Route path="/services/:destinationId/tour-guide" element={<TourGuide />} />

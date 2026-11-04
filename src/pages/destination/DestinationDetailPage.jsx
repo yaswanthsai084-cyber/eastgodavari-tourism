@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { additionalDestinations } from '../../data/additionalDestinations';
+import { getDestinationHospitality } from '../../data/destinationHospitality';
 import '../experience/ExperienceDetail.css';
 import explorePeddapuramBeach from '../../assets/images/explore-peddapuram-beach.jpg';
 import exploreKakinadaBeach from '../../assets/images/explore-kakinada-beach.jpg';
@@ -164,6 +165,7 @@ const DestinationDetailPage = () => {
   const content = destinationContent[Number(id)];
   const aboutParagraphs = content?.about ? [content.about] : dest.fullDescription;
   const relatedEvent = destinationEvents[Number(id)];
+  const hospitality = getDestinationHospitality(dest.location);
 
   return (
     <div style={{ minHeight: '100vh' }}>
@@ -421,6 +423,28 @@ const DestinationDetailPage = () => {
             </div>
           ) : null;
         })()}
+
+        {/* Hospitality Services */}
+        <section className="destination-detail-hospitality" aria-labelledby="hospitality-title">
+          <div className="destination-detail-hospitality-heading">
+            <span>Stay and dine nearby</span>
+            <h2 id="hospitality-title">Hospitality Services</h2>
+            <p>Hotels, lodges, restaurants, and guest-house options near {dest.title} in {hospitality.nearby}.</p>
+          </div>
+          <div className="destination-detail-hospitality-grid">
+            {hospitality.items.map((item) => (
+              <Link to={`/hospitality/${item.id}`} key={item.id} className="destination-detail-hospitality-card">
+                <img src={item.image} alt={`${item.title} near ${dest.title}`} loading="lazy" />
+                <div className="destination-detail-hospitality-card-body">
+                  <span className="destination-detail-hospitality-type">{item.type}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  <a href={item.source} target="_blank" rel="noreferrer">View source</a>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
       </div>
 
       <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} style={{ position: 'fixed', bottom: '2rem', right: '2rem', width: '50px', height: '50px', borderRadius: '50%', background: 'white', border: '2px solid #FF9D00', color: '#FF9D00', fontSize: '1.5rem', cursor: 'pointer', boxShadow: '0 2px 8px rgba(0,0,0,0.2)', zIndex: 100 }}>↑</button>
