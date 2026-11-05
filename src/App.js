@@ -1,40 +1,46 @@
-import React, { useEffect, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import BackButton from './components/BackButton';
 import Home from './pages/Home';
-import Destinations from './pages/destination/Destinations';
-import DestinationDetail from './pages/destination/DestinationDetail';
-import EventsPage from './pages/EventsPage';
-import EventDetail from './pages/EventDetail';
-import ExperiencesPage from './pages/experience/ExperiencesPage';
-import ExperienceDetail from './pages/experience/ExperienceDetail';
-import DestinationDetailPage from './pages/destination/DestinationDetailPage';
-import PlanTrip from './pages/plan-trip/PlanTrip';
-import PhotoGallery from './pages/PhotoGallery';
-import About from './pages/About';
-import Contact from './pages/plan-trip/Contact';
-import WhereToGo from './pages/WhereToGo';
-import TrendingPlaces from './pages/TrendingPlaces';
-import DestinationServices from './pages/help/DestinationServices';
-import NearbyDestinationDetail from './pages/destination/NearbyDestinationDetail';
-import TourGuide from './pages/plan-trip/TourGuide';
-import PoliceServices from './pages/help/PoliceServices';
-import HealthServices from './pages/help/HealthServices';
-import ReligionPage from './pages/ReligionPage';
-import Spirituality from './pages/spirituality/Spirituality';
-import Temples from './pages/spirituality/Temples';
-import Churches from './pages/spirituality/Churches';
-import Masjids from './pages/spirituality/Masjids';
-import TouristOffice from './pages/plan-trip/TouristOffice';
-import AllTouristOffices from './pages/plan-trip/AllTouristOffices';
-import AllTourGuides from './pages/plan-trip/AllTourGuides';
-import HowToReach from './pages/plan-trip/HowToReach';
-import EastGodavariMap from './pages/plan-trip/EastGodavariMap';
-import LivingFacilities from './pages/plan-trip/LivingFacilities';
-import HospitalityDetail from './pages/HospitalityDetail';
+
+// Keep the initial bundle focused on the home page. Other pages load only when visited.
+const Destinations = lazy(() => import('./pages/destination/Destinations'));
+const DestinationDetail = lazy(() => import('./pages/destination/DestinationDetail'));
+const EventsPage = lazy(() => import('./pages/EventsPage'));
+const EventDetail = lazy(() => import('./pages/EventDetail'));
+const ExperiencesPage = lazy(() => import('./pages/experience/ExperiencesPage'));
+const ExperienceDetail = lazy(() => import('./pages/experience/ExperienceDetail'));
+const DestinationDetailPage = lazy(() => import('./pages/destination/DestinationDetailPage'));
+const PlanTrip = lazy(() => import('./pages/plan-trip/PlanTrip'));
+const PhotoGallery = lazy(() => import('./pages/PhotoGallery'));
+const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/plan-trip/Contact'));
+const WhereToGo = lazy(() => import('./pages/WhereToGo'));
+const TrendingPlaces = lazy(() => import('./pages/TrendingPlaces'));
+const DestinationServices = lazy(() => import('./pages/help/DestinationServices'));
+const NearbyDestinationDetail = lazy(() => import('./pages/destination/NearbyDestinationDetail'));
+const TourGuide = lazy(() => import('./pages/plan-trip/TourGuide'));
+const PoliceServices = lazy(() => import('./pages/help/PoliceServices'));
+const HealthServices = lazy(() => import('./pages/help/HealthServices'));
+const ReligionPage = lazy(() => import('./pages/ReligionPage'));
+const Spirituality = lazy(() => import('./pages/spirituality/Spirituality'));
+const Temples = lazy(() => import('./pages/spirituality/Temples'));
+const Churches = lazy(() => import('./pages/spirituality/Churches'));
+const Masjids = lazy(() => import('./pages/spirituality/Masjids'));
+const TouristOffice = lazy(() => import('./pages/plan-trip/TouristOffice'));
+const AllTouristOffices = lazy(() => import('./pages/plan-trip/AllTouristOffices'));
+const AllTourGuides = lazy(() => import('./pages/plan-trip/AllTourGuides'));
+const HowToReach = lazy(() => import('./pages/plan-trip/HowToReach'));
+const EastGodavariMap = lazy(() => import('./pages/plan-trip/EastGodavariMap'));
+const LivingFacilities = lazy(() => import('./pages/plan-trip/LivingFacilities'));
+const HospitalityDetail = lazy(() => import('./pages/HospitalityDetail'));
+
+const RouteFallback = () => (
+  <div className="route-loading" role="status" aria-live="polite">Loading page…</div>
+);
 
 // ============ SCROLL TO TOP ============
 const ScrollToTop = () => {
@@ -88,7 +94,7 @@ const ScrollToTopButton = () => {
 // ============ APP CONTENT ============
 function AppContent() {
   const location = useLocation();
-  const hasPageLoadingEffects = /^\/(destinations|destination|nearby-destination|destination-page|experiences|experience|services|spirituality)(\/|$)/.test(location.pathname);
+  const hasPageLoadingEffects = /^\/(destinations|destination|nearby-destination|destination-page|experiences|experience|services|spirituality|hospitality)(\/|$)/.test(location.pathname);
   
   return (
     <div className="App">
@@ -104,7 +110,8 @@ function AppContent() {
           hasPageLoadingEffects ? 'page-loading-effects' : ''
         ].filter(Boolean).join(' ')}
       >
-        <Routes>
+        <Suspense fallback={<RouteFallback />}>
+          <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/trending-places" element={<TrendingPlaces />} />
           <Route path="/where-to-go" element={<WhereToGo />} />
@@ -138,7 +145,8 @@ function AppContent() {
           <Route path="/services/:destinationId/tour-guide" element={<TourGuide />} />
           <Route path="/services/:destinationId/police-services" element={<PoliceServices />} />
           <Route path="/services/:destinationId/health-services" element={<HealthServices />} />
-        </Routes>
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
     </div>
