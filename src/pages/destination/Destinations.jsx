@@ -40,15 +40,9 @@ const Destinations = () => {
   const [searchParams] = useSearchParams();
   const [categoryFromUrl] = useState(searchParams.get('category'));
   const [activeFilter, setActiveFilter] = useState(categoryFromUrl || 'all');
-  const [videoLoaded, setVideoLoaded] = useState(false);
   const [clickedDestination, setClickedDestination] = useState(null);
-  const videoRef = useRef(null);
   const destinationGridRef = useRef(null);
-
-  // Track video load
-  const handleVideoLoad = () => {
-    setVideoLoaded(true);
-  };
+  const categoryMenuRef = useRef(null);
 
   // Auto-scroll to category section when category changes or page loads
   useEffect(() => {
@@ -56,6 +50,11 @@ const Destinations = () => {
       setActiveFilter(categoryFromUrl);
     }
   }, [categoryFromUrl]);
+
+  useEffect(() => {
+    const activeButton = categoryMenuRef.current?.querySelector('.destination-category-menu-button.active');
+    activeButton?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }, [activeFilter]);
 
   useEffect(() => {
     const cards = destinationGridRef.current?.querySelectorAll('.destination-menu-card');
@@ -154,68 +153,21 @@ const Destinations = () => {
 
   return (
     <div className="page-container destinations-menu-page">
-      {/* Hero Video Section (Home Page Style) */}
-      <section className="hero-section">
-        <div className="hero-video-wrapper">
-          <video
-            ref={videoRef}
-            height="100%" width="100%"
-            preload="metadata"
-            playsInline
-            muted
-            autoPlay
-            loop
-            onLoadedData={handleVideoLoad}
-            style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-          >
-            <source src="/godavari.mp4" type="video/mp4" />
-            <source src="/experience.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div className="hero-content" style={{ opacity: videoLoaded ? 1 : 0, transition: 'opacity 1s ease' }}>
-          <div className="container" style={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <div className="hero-content-inner">
-              <div className="hero-content-body">
-                <hr aria-orientation="vertical" className="hero-divider" />
-                <h6 className="hero-category">East Godavari Tourism</h6>
-                <h1 style={{ fontFamily: "var(--kt-fonts-heading)", fontSize: '2.5rem', color: 'white', marginBottom: '0.5rem', marginLeft: '1.5rem' }}>Explore Destinations</h1>
-                <p className="hero-description">Discover the diverse beauty of East Godavari</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Main Content */}
       <div className="container" style={{ paddingTop: '3rem' }}>
-        {/* Category Filter Tabs */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '1rem',
-          marginBottom: '3rem',
-          flexWrap: 'wrap'
-        }}>
+        {/* Category Menu Bar */}
+        <nav ref={categoryMenuRef} className="destination-category-menu" aria-label="Destination categories">
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setActiveFilter(category.id)}
-              style={{
-                padding: '0.75rem 1.5rem',
-                border: activeFilter === category.id ? '2px solid #1a6b7a' : '2px solid #e0e0e0',
-                background: activeFilter === category.id ? '#1a6b7a' : 'white',
-                color: activeFilter === category.id ? 'white' : '#333',
-                borderRadius: '25px',
-                cursor: 'pointer',
-                fontSize: '0.95rem',
-                fontWeight: '500',
-                transition: 'all 0.3s ease'
-              }}
+              className={`destination-category-menu-button ${activeFilter === category.id ? 'active' : ''}`}
+              aria-current={activeFilter === category.id ? 'page' : undefined}
             >
               {category.label}
             </button>
           ))}
-        </div>
+        </nav>
 
         {/* Image Cards Grid */}
         <div ref={destinationGridRef} className="destination-menu-grid" style={{

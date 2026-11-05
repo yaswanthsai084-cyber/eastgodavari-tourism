@@ -2878,6 +2878,113 @@
         animation: home-feature-card-enter 450ms cubic-bezier(0.2, 0.65, 0.3, 1) both;
       }
 
+      .destination-category-menu {
+        position: sticky;
+        top: 108px;
+        z-index: 10;
+        display: flex;
+        gap: 0.35rem;
+        width: 100vw;
+        margin: 0 calc(50% - 50vw) 3rem;
+        padding: 0.7rem max(1rem, calc((100vw - 1200px) / 2));
+        overflow-x: auto;
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: 0 8px 22px rgba(26, 26, 46, 0.08);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        scroll-behavior: smooth;
+        scroll-snap-type: x proximity;
+        scrollbar-width: none;
+      }
+
+      .destination-category-menu::before,
+      .destination-category-menu::after {
+        content: '';
+        position: sticky;
+        z-index: 2;
+        flex: 0 0 1.5rem;
+        height: 2.5rem;
+        pointer-events: none;
+      }
+
+      .destination-category-menu::before {
+        left: 0;
+        margin-right: -1.5rem;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.98), transparent);
+      }
+
+      .destination-category-menu::after {
+        right: 0;
+        margin-left: -1.5rem;
+        background: linear-gradient(270deg, rgba(255, 255, 255, 0.98), transparent);
+      }
+
+      .destination-category-menu::-webkit-scrollbar {
+        display: none;
+      }
+
+      .destination-category-menu-button {
+        flex: 0 0 auto;
+        position: relative;
+        padding: 0.7rem 1rem;
+        border: 0;
+        border-bottom: 3px solid transparent;
+        border-radius: 0.35rem 0.35rem 0 0;
+        color: #58636a;
+        background: transparent;
+        cursor: pointer;
+        font: 600 0.86rem/1.2 'Segoe UI', sans-serif;
+        white-space: nowrap;
+        scroll-snap-align: center;
+        animation: destination-menu-item-in 500ms both;
+        transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+      }
+
+      .destination-category-menu-button:nth-child(2) { animation-delay: 40ms; }
+      .destination-category-menu-button:nth-child(3) { animation-delay: 80ms; }
+      .destination-category-menu-button:nth-child(4) { animation-delay: 120ms; }
+      .destination-category-menu-button:nth-child(5) { animation-delay: 160ms; }
+      .destination-category-menu-button:nth-child(6) { animation-delay: 200ms; }
+      .destination-category-menu-button:nth-child(7) { animation-delay: 240ms; }
+      .destination-category-menu-button:nth-child(8) { animation-delay: 280ms; }
+
+      @keyframes destination-menu-item-in {
+        from { opacity: 0; transform: translateY(-8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .destination-category-menu-button:hover,
+      .destination-category-menu-button:focus-visible {
+        color: #1a6b7a;
+        background: #f0f8f5;
+        outline: none;
+      }
+
+      .destination-category-menu-button.active {
+        color: #1a6b7a;
+        border-bottom-color: #ff9d00;
+        background: #fffaf0;
+      }
+
+      .destination-category-menu-button.active::after {
+        content: '';
+        position: absolute;
+        right: 0.8rem;
+        bottom: -3px;
+        left: 0.8rem;
+        height: 3px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #ff9d00, #ff6b35);
+        animation: destination-menu-active-line 350ms ease-out both;
+      }
+
+      @keyframes destination-menu-active-line {
+        from { transform: scaleX(0); opacity: 0; }
+        to { transform: scaleX(1); opacity: 1; }
+      }
+
       .destination-detail-hospitality {
         margin: 0 0 4rem;
         padding: 3.5rem 2rem;
@@ -3116,6 +3223,13 @@
 
         .destination-detail-hospitality-grid {
           grid-template-columns: 1fr;
+        }
+
+        .destination-category-menu {
+          top: 72px;
+          margin-bottom: 2rem;
+          padding-right: 0.5rem;
+          padding-left: 0.5rem;
         }
 
         .hospitality-detail-page {
@@ -4271,3 +4385,87 @@
          animation: none;
        }
      }
+
+      /* Mobile officials and AP logo layout */
+      @media (max-width: 767px) {
+        .header-top .header-container {
+          min-height: 112px;
+          padding: 0.55rem 0.35rem 0.45rem;
+        }
+
+        .header-mobile-row {
+          display: grid !important;
+          grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+          align-items: start;
+          gap: 0.35rem;
+          width: 100%;
+          padding: 0 2rem 0 0.15rem;
+        }
+
+        .header-mobile-row .header-cm-mobile,
+        .header-mobile-row .header-minister-mobile,
+        .header-mobile-row .header-title-block-mobile {
+          width: 100%;
+          min-width: 0;
+          margin: 0;
+          gap: 0.2rem;
+        }
+
+        .header-mobile-row .header-cm-mobile,
+        .header-mobile-row .header-minister-mobile {
+          padding-top: 0.15rem;
+        }
+
+        .header-mobile-row .header-cm-img,
+        .header-mobile-row .header-minister-img {
+          width: 42px;
+          height: 42px;
+          border-width: 2px;
+        }
+
+        .header-mobile-row .header-emblem {
+          width: 48px;
+          height: 48px;
+        }
+
+        .header-mobile-row .header-title {
+          max-width: 105px;
+          font-size: 0.62rem;
+          line-height: 1.15;
+        }
+
+        .header-mobile-row .header-subtitle-mobile {
+          font-size: 0.4rem;
+          line-height: 1.25;
+          white-space: normal;
+        }
+
+        .header-mobile-row .header-cm-text,
+        .header-mobile-row .header-minister-name {
+          max-width: 100%;
+          overflow: hidden;
+          font-size: 0.47rem;
+          line-height: 1.15;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .header-mobile-row .header-cm-subtitle,
+        .header-mobile-row .header-minister-title {
+          max-width: 100%;
+          overflow: hidden;
+          font-size: 0.38rem;
+          line-height: 1.15;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .header-top-right {
+          display: none;
+        }
+
+        .hamburger-menu {
+          right: 0.45rem;
+          top: 50%;
+        }
+      }
