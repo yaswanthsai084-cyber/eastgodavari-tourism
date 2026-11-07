@@ -9,6 +9,7 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const isDestinationPage = /^\/(?:destinations|destination(?:-page)?|nearby-destination)(?:\/|$)/.test(location.pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +30,7 @@ const Header = () => {
   ];
 
   return (
-    <header className={`header ${scrolled ? 'header-scrolled' : ''}`}>
+    <header className={`header ${isDestinationPage ? 'destination-header' : ''} ${scrolled ? 'header-scrolled' : ''}`}>
       <div className="header-top">
         <div className="header-container">
           <div className="header-top-left">
